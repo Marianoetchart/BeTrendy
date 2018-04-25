@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include ./partials/head.html %>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
+<% include ./partials/navigation.html %>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>Add exercise to session</h1>
+                <p>Each exercise in the session consists of a question and a set of items.</p>
+                <form method="post" action="/manage/session/exercise">
+                    <div class="form-group row">
+                        <label for="session" class="col-2 col-form-label">Session</label>
+                        <div class="col-10">
+                            <select name="session" id="session" class="form-control">
+                                <% for(var i=0; i< sessions.length; i++) {%>
+                                <option value="<%= sessions[i]._id %>"><%= sessions[i].child.name + ' ' + sessions[i].child.surname + ' | ' + sessions[i].date  %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="place" class="col-2 col-form-label">Place</label>
+                        <div class="col-10">
+                            <select name="place" id="place" class="form-control">
+                                <% include ./partials/places-dropdown.html %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exerciseText" class="col-2 col-form-label">Question text</label>
+                        <div class="col-10">
+                            <input type="text" class="form-control" name="exerciseText" id="exerciseText" aria-describedby="exerciseTextHelp" placeholder="Enter question." required>
+                            <small id="exerciseTextHelp" class="form-text text-muted"> Ex: 'Select the items that you would bring with you'</small>
+                        </div>
+                    </div>
+                    <p>At least one item must be correct, otherwise the exercise gets stuck.</p>
+                    <table class="table table-borderless">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="col-xs-1"></th>
+                            <th scope="col" class="col-xs-10">Items</th>
+                            <th scope="col" class="col-xs-1">Is correct?</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><select name="items" id="item0" class="form-control">
+                                <% include ./partials/items-dropdown.html %>
+                            </select></td>
+                            <td><input type="checkbox" name="item0-isCorrect" id="item0-isCorrect"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td><select name="items" id="item1" class="form-control">
+                                <% include ./partials/items-dropdown.html %>
+                            </select></td>
+                            <td><input type="checkbox" name="item1-isCorrect" id="item1-isCorrect"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td><select name="items" id="item2" class="form-control">
+                                <% include ./partials/items-dropdown.html %>
+                            </select></td>
+                            <td><input type="checkbox" name="item2-isCorrect" id="item2-isCorrect"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td><select name="items" id="item3" class="form-control">
+                                <% include ./partials/items-dropdown.html %>
+                            </select></td>
+                            <td><input type="checkbox" name="item3-isCorrect" id="item3-isCorrect"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td><select name="items" id="item4" class="form-control">
+                                <% include ./partials/items-dropdown.html %>
+                            </select></td>
+                            <td><input type="checkbox" name="item4-isCorrect" id="item4-isCorrect"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td><select name="items" id="item5" class="form-control">
+                                <% include ./partials/items-dropdown.html %>
+                            </select></td>
+                            <td><input type="checkbox" name="item5-isCorrect" id="item5-isCorrect"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td><select name="items" id="item6" class="form-control">
+                                <% include ./partials/items-dropdown.html %>
+                            </select></td>
+                            <td><input type="checkbox" name="item6-isCorrect" id="item6-isCorrect"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="color: red"><%= (!!locals.error)?error:'' %></div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <% include ./partials/footer.html %>
+</div>
+</body>
+
+</html>
