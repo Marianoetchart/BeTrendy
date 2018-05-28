@@ -104,7 +104,7 @@ var utils = {
             // show text in textbox
             document.getElementById('text-box-value').setAttribute('value', text);
 
-            if(speak){
+            if(speak && SpeechSynthesisUtterance !== undefined){
                 // if speak flag is set, speak it at loud
                 var msg = new SpeechSynthesisUtterance(text);
                 msg.lang = 'it-it';
