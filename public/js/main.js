@@ -107,9 +107,15 @@ eventsUtils.addEventListener('question-finished', function () {
             }
         });
 
-        // questions have finished
-        utils.panda.speak('Ben fatto. Per oggi abbiamo finito con i viaggi.');
-
+        console.log("Got here1...")
+        try {
+            // questions have finished
+            utils.panda.speak('Ben fatto. Per oggi abbiamo finito con i viaggi.');
+        }
+        catch(error) {
+            console.log("Error");
+        }
+        console.log("Got here...")
         //remove the remaining items
         for(var j = 1; j <= 7; j++){
             utils.removeEntity('option'+j+'-src');

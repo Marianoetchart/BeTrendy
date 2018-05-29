@@ -104,16 +104,23 @@ var utils = {
             // show text in textbox
             document.getElementById('text-box-value').setAttribute('value', text);
 
-            if(speak && SpeechSynthesisUtterance !== undefined){
-                // if speak flag is set, speak it at loud
-                var msg = new SpeechSynthesisUtterance(text);
-                msg.lang = 'it-it';
-                if(typeof callback !== 'undefined'){
-                    msg.onend = callback
+            try{
+                if(speak && SpeechSynthesisUtterance !== undefined){
+                    // if speak flag is set, speak it at loud
+                    var msg = new SpeechSynthesisUtterance(text);
+                    msg.lang = 'it-it';
+                    if(typeof callback !== 'undefined'){
+                        msg.onend = callback
+                    }
+                    console.log('[utils][panda][speak]', text);
+                    window.speechSynthesis.speak(msg);
+                }else{
+                    // if speak is false, check if a callback has been passed
+                    if(typeof callback !== 'undefined'){
+                        callback()
+                    }
                 }
-                console.log('[utils][panda][speak]', text);
-                window.speechSynthesis.speak(msg);
-            }else{
+            }catch (e) {
                 // if speak is false, check if a callback has been passed
                 if(typeof callback !== 'undefined'){
                     callback()
