@@ -34,6 +34,54 @@ var src = {
         cuffiaPiscina: {
             type: 'img',
             src: '#cuffia-piscina'
+        },
+        sock8: {
+            type: 'img',
+            src: '#sock-8'
+        },
+        sock9: {
+            type: 'img',
+            src: '#sock-9'
+        },
+        sock23: {
+            type: 'img',
+            src: '#sock-23'
+        },
+        sock24: {
+            type: 'img',
+            src: '#sock-24'
+        },
+        sock35: {
+            type: 'img',
+            src: '#sock-35'
+        },
+        blue: {
+            type: 'img',
+            src: '#blue'
+        },
+        green: {
+            type: 'img',
+            src: '#green'
+        },
+        red: {
+            type: 'img',
+            src: '#red'
+        },
+        yellow: {
+            type: 'img',
+            src: '#yellow'
+        },
+        swimsuit: {
+            type: 'img',
+            src: '#swimsuit'
+        },
+        jacket: {
+            type: 'img',
+            src: '#jacket'
+        },
+        boots: {
+            type: 'img',
+            src: '#boots'
         }
     },
     places:{
@@ -54,6 +102,15 @@ var src = {
         },
         swimmingPool: {
             src: '#swimming-pool'
+        },
+        trainScene: {
+            src: '#train-scene'
+        },
+        christmasScene: {
+            src: '#christmas-scene'
+        },
+        room: {
+            src: '#room'
         }
     }
 };

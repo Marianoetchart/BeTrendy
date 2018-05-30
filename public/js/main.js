@@ -81,7 +81,7 @@ eventsUtils.addEventListener('option-focused', function (evt) {
             utils.panda.speak(question.items[optionId-1].hint)
         }
     }
-
+    
     // check if the game has ended
     var ended = true;
     for(var i = 0; i < question.items.length; i++){
